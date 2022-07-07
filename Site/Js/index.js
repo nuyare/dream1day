@@ -23,6 +23,5 @@ if (charactersAnimations != null) {
             animation.innerHTML = character;
             characterSelectionList.appendChild(animation);
             index++;
-            console.log(index);
         });
 }

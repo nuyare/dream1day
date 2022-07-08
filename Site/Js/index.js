@@ -15,7 +15,8 @@ function DisplayCharacter(){
 function GetCharacters(){
     // Requête pour récupérer les images
     // Avec l'autorisation 
-    fetch('https://api.github.com/repos/nuyare/testdream/contents',{
+    // https://api.github.com/repos/nuyare/dream1day/contents
+    fetch('https://api.github.com/repos/nuyare/dream1day/contents',{
         headers: {
             'Authorization' : 'token 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' 
         }

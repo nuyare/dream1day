@@ -1,27 +1,48 @@
-const charactersAnimations = []; 
+// Liste des personnages 
 const characterSelectionList = document.querySelector('#characterSelectionList');
-characterSelectionList.addEventListener('click', changeCharacter);
+characterSelectionList.addEventListener('click', DisplayCharacter);
 
-function fillImages(){
-    charactersAnimations.push("https://live2d-dcg.github.io/viewerK.html?mN=c486_10&size=1150&mS=1.5&mX=0&mY=0.3");
-    charactersAnimations.push("https://live2d-dcg.github.io/viewerK.html?mN=c525_02&size=1150&mS=1.5&mX=0&mY=0.5");
+// Personnage 
+const character = document.querySelector('#character');
+
+
+function DisplayCharacter(){
+    const characterSelected = characterSelectionList.options[characterSelectionList.selectedIndex].id;
+    character.src = characterSelected;
 }
 
-fillImages();
 
-function changeCharacter(){
-    const character = document.querySelector('#ca');
-    character.src = characterSelectionList.options[characterSelectionList.selectedIndex].value;
+function GetCharacters(){
+    // Requête pour récupérer les images
+    // Avec l'autorisation 
+    fetch('https://api.github.com/repos/nuyare/testdream/contents',{
+        headers: {
+            'Authorization' : 'token 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' 
+        }
+    })
+    // Recevoir que le contenu JSON 
+    .then(response => {
+        return response.json();
+    })
+    // Récupérer que le contenu JSON 
+    .then(json => {
+        const characters = json;
+        if (characterSelectionList != null) {
+            characters.forEach(character => 
+                {   
+                    // Option 
+                    const characterOption = document.createElement('option');
+                    characterOption.id = character.download_url;
+                    characterOption.innerHTML = character.name;
+
+                    // On ajoute l'option à la liste
+                    characterSelectionList.appendChild(characterOption);
+
+                });
+        }
+    });
+
 }
 
-if (charactersAnimations != null) {
-    let index = 0;
-    charactersAnimations.forEach(character => 
-        {   
-            const animation = document.createElement('option');
-            animation.id = "character" + index;
-            animation.innerHTML = character;
-            characterSelectionList.appendChild(animation);
-            index++;
-        });
-}
+
+GetCharacters();

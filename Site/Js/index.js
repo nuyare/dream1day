@@ -17,7 +17,7 @@ function GetCharacters(){
     // Avec l'autorisation 
     fetch('https://api.github.com/repos/nuyare/dream1day/contents/Site/Image',{
         headers: {
-            'Authorization' : 'token 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'
+            'Authorization' : 'token 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'
         }
     })
     // Recevoir que le contenu JSON 

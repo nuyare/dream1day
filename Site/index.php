@@ -22,6 +22,10 @@ $characters = scandir('./Image');
                     <button>Censored</button>
                     <button>Uncersored</button>
                 </div>
+                <a href="" id="nm">okay</a>
+                <div class="characterHover">
+                    <img src="Image/testezzzz.jpg" alt="">
+                </div>
                 <!-- Character selection -->
                 <div>
                     <label for="characterSelectionList">Model : </label>
@@ -30,6 +34,7 @@ $characters = scandir('./Image');
                             foreach ($characters as $character => $path) {
                                 if ($path != '.' && $path != '..') {
                                     echo '<option value="">'.$path.'</option> ';
+                                    echo '<img src="Image/fille.gif" alt="">';
                                 }
                             }
                         ?>
@@ -38,8 +43,33 @@ $characters = scandir('./Image');
                     <button>Next</button>
                 </div>
                 <!-- Character Edit -->
-                <div>
-                    <input type="range" min="0" max="100" value="0" placeholder="0">
+                <div class="characterEdit">
+
+                    <!-- Size -->
+                    <div class="characterSize">
+                        <label for="">Size : </label>
+                        <input type="range" min="0" max="100" value="0" placeholder="0">
+                    </div>
+                    
+                    <!-- Scale -->
+                    <div class="characterScale">
+                        <label for="">Scale : </label>
+                        <input type="range" min="0" max="100" value="0" placeholder="0">
+                    </div>
+
+
+                    <!-- Left | Right -->
+                    <div class="characterSides">
+                        <label for="">Left | Right </label>
+                        <input type="range" min="0" max="100" value="0" placeholder="0">
+                    </div>
+
+                    <!-- Top | Bottom -->
+                    <div class="characterEdges">
+                        <label for="">Top | Bottom </label>
+                        <input type="range" min="0" max="100" value="0" placeholder="0">
+                    </div>
+
                 </div>
                 <!-- Character -->
                 <div>

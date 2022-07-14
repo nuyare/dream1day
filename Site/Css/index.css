@@ -15,7 +15,48 @@ body{
     align-items: center;
 }
 
+.characterEdit{
+    display: flex;
+    flex-direction: column;
+}
+
+.characterSize{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.characterScale{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.characterSides{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.characterEdges{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
 .character iframe{
     width: 600px;
     height: 600px;
+}
+
+
+.characterHover{
+    display: none;
+}
+
+#nm:hover + .characterHover{
+    display: flex;
+    flex-direction: column;
 }
